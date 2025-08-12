@@ -53,28 +53,6 @@ hierarchical_fw_policies = {
           ]
         }
       },
-      "10000" = { # Deny known malicious IPs ingress traffic #
-        priority                = 10000
-        direction               = "INGRESS"
-        action                  = "deny"
-        rule_name               = "10000"
-        disabled                = false
-        description             = "Deny known malicious IPs ingress traffic"
-        enable_logging          = true
-        target_service_accounts = []
-        target_resources        = []
-        match = {
-          src_threat_intelligences = ["iplist-known-malicious-ips", "iplist-crypto-miners", "iplist-vpn-providers", "iplist-tor-exit-nodes", "iplist-anon-proxies"]
-          dest_ip_ranges           = ["100.126.0.0/20","10.0.0.0/8"] 
-            #ritma-comment
-          layer4_configs = [
-            {
-              ip_protocol = "all"
-              ports       = []
-            },
-          ]
-        }
-      },
       "10001" = { # Deny known malicious IPs egress traffic #
         priority                = 10001
         direction               = "EGRESS"
