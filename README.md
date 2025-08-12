@@ -32,7 +32,27 @@ hierarchical_fw_policies = {
       },
     }
     fw_policy_rules = {
-
+      "100" = { # test rule adding RITMB #
+        priority                = 100
+        direction               = "INGRESS"
+        action                  = "allow"
+        rule_name               = "100"
+        disabled                = false
+        description             = "test rule adding RITMB"
+        enable_logging          = true
+        target_service_accounts = []
+        target_resources        = []
+        match = {
+          src_threat_intelligences = ["0.0.0.0/0"]
+          dest_ip_ranges           = ["0.0.0.0/0"]
+          layer4_configs = [
+            {
+              ip_protocol = "all"
+              ports       = []
+            },
+          ]
+        }
+      },
       "10000" = { # Deny known malicious IPs ingress traffic #
         priority                = 10000
         direction               = "INGRESS"
