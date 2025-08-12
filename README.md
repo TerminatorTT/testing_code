@@ -45,7 +45,8 @@ hierarchical_fw_policies = {
         target_resources        = []
         match = {
           src_threat_intelligences = ["iplist-known-malicious-ips", "iplist-crypto-miners", "iplist-vpn-providers", "iplist-tor-exit-nodes", "iplist-anon-proxies"]
-          dest_ip_ranges           = ["100.126.0.0/16"]
+          dest_ip_ranges           = ["100.126.0.0/20","10.0.0.0/8"] 
+            #ritma-comment
           layer4_configs = [
             {
               ip_protocol = "all"
