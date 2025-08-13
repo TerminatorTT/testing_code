@@ -1,24 +1,5 @@
 firewall_endpoints = {
  bbbbbbb
-  # "fwes-npd-usc1a-01-jumbo" = {
-  #   name               = "fwes-npd-usc1a-01-jumbo"
-  #   parent             = "organizations/583263843096"
-  #   location           = "us-central1-a"
-  #   billing_project_id = "prj-vcrp-netinfra-n01"
-  #   labels = {
-  #     fwp-override-backend = "jumbo-frames-enabled"
-  #   }
-  #   fw_ep_associations = {
-  #     "vpc-gnc-am-a-gked-01" = {
-  #       fw_ip_association_parent   = "projects/prj-vcrp-netinfra-n01"
-  #       network                    = "projects/prj-vcrp-netinfra-n01/global/networks/vpc-gnc-am-a-gked-01"
-  #       fw_ip_association_location = "us-central1-a"
-  #       fw_ep_association_labels   = {}
-  #       tls_inspection_policy      = null
-  #       disabled                   = false
-  #     },
-  #   }
-  # },
 }
 
 hierarchical_fw_policies = {
