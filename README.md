@@ -32,19 +32,20 @@ hierarchical_fw_policies = {
       },
     }
     fw_policy_rules = {
-      "100" = { # test rule adding RITMB #
-        priority                = 100
+
+      "10000" = { # Deny known malicious IPs ingress traffic #
+        priority                = 10000
         direction               = "INGRESS"
-        action                  = "allow"
-        rule_name               = "100"
+        action                  = "deny"
+        rule_name               = "10000"
         disabled                = false
-        description             = "test rule adding RITMB"
+        description             = "Deny known malicious IPs ingress traffic"
         enable_logging          = true
         target_service_accounts = []
         target_resources        = []
         match = {
-          src_threat_intelligences = ["0.0.0.0/0"]
-          dest_ip_ranges           = ["0.0.0.0/0"]
+          src_threat_intelligences = ["iplist-known-malicious-ips", "iplist-crypto-miners", "iplist-vpn-providers", "iplist-tor-exit-nodes", "iplist-anon-proxies"]
+          dest_ip_ranges           = ["100.126.0.0/16"]
           layer4_configs = [
             {
               ip_protocol = "all"
